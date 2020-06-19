@@ -23,7 +23,9 @@ import { isPlatformServer } from '@angular/common';
 
 import { CommonModule } from '@angular/common';
 
-import * as tween from '@tweenjs/tween.js'
+import * as tweenjs from '@tweenjs/tween.js'
+
+const { Tween, Easing } = tweenjs;
 
 export interface VirtualScrollerDefaultOptions {
 	scrollThrottlingTime: number;
@@ -544,9 +546,9 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
 		const tweenConfigObj = { scrollPosition: scrollElement[this._scrollType] };
 
-		let newTween = new tween.Tween(tweenConfigObj)
+		let newTween = new Tween(tweenConfigObj)
 			.to({ scrollPosition }, animationMilliseconds)
-			.easing(tween.Easing.Quadratic.Out)
+			.easing(Easing.Quadratic.Out)
 			.onUpdate((data) => {
 				if (isNaN(data.scrollPosition)) {
 					return;
@@ -720,7 +722,7 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
 	protected padding: number = 0;
 	protected previousViewPort: IViewport = <any>{};
-	protected currentTween: tween.Tween;
+	protected currentTween: import('@tweenjs/tween.js').Tween;
 	protected cachedItemsLength: number;
 
 	protected disposeScrollHandler: () => void | undefined;
@@ -768,7 +770,7 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 		this.zone.runOutsideAngular(() => {
 			requestAnimationFrame(() => {
 
-				if (itemsArrayModified) {
+				if (!this.skipPrependScrollAdjust && itemsArrayModified) {
 					this.resetWrapGroupDimensions();
 				}
 				let viewport = this.calculateViewport();
