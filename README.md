@@ -15,6 +15,8 @@
 
 # ngx-virtual-scroller
 
+NOTE: This is a modified version of the original package [ngx-virtual-scroller](https://github.com/rintoj/ngx-virtual-scroller)
+
 Virtual Scroll displays a virtual, "infinite" list. Supports horizontal/vertical, variable heights, & multi-column.
 
 ## Renamed from angular2-virtual-scroll to ngx-virtual-scroller. Please update your package.json
