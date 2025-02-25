@@ -1,6 +1,7 @@
 {
   "name": "@changegamers/ngx-virtual-scroller",
   "version": "16.0.0",
+  "private": false,
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -20,7 +21,6 @@
     "prod-publish": "npm run build:all2 && npm publish --access=public ./dist/ngx-virtual-scroller",
     "publish-test": "npm pack ./dist"
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^16.0.0",
     "@angular/common": "^16.0.0",
