@@ -1,11 +1,11 @@
 {
   "name": "@akhan94/ngx-virtual-scroller",
-  "version": "16.0.0",
+  "version": "16.0.2",
   "peerDependencies": {
-    "@tweenjs/tween.js": "^20.0.3"
+    "@tweenjs/tween.js": "^25.0.0"
   },
   "devDependencies": {
-    "@tweenjs/tween.js": "^20.0.3"
+    "@tweenjs/tween.js": "^25.0.0"
   },
   "repository": {
     "type": "git",

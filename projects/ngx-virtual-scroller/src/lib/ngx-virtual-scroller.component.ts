@@ -6,7 +6,6 @@ import {
     EventEmitter,
     Inject,
     Input,
-    NgModule,
     NgZone,
     OnChanges,
     OnDestroy,
@@ -14,15 +13,14 @@ import {
     Optional,
     Output,
     Renderer2,
-    ViewChild,
+    ViewChild
 } from '@angular/core';
 
-import {PLATFORM_ID} from '@angular/core';
-import {isPlatformServer} from '@angular/common';
+import { isPlatformServer } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
-import {CommonModule} from '@angular/common';
 
-import * as tween from '@tweenjs/tween.js'
+import { Easing, Tween } from '@tweenjs/tween.js';
 
 export interface VirtualScrollerDefaultOptions {
     checkResizeInterval: number
@@ -566,9 +564,9 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
         const tweenConfigObj = {scrollPosition: scrollElement[this._scrollType]};
 
-        let newTween = new tween.Tween(tweenConfigObj)
+        let newTween = new Tween(tweenConfigObj)
             .to({scrollPosition}, animationMilliseconds)
-            .easing(tween.Easing.Quadratic.Out)
+            .easing(Easing.Quadratic.Out)
             .onUpdate((data) => {
                 if (isNaN(data.scrollPosition)) {
                     return;
@@ -745,7 +743,7 @@ export class VirtualScrollerComponent implements OnInit, OnChanges, OnDestroy {
 
     protected padding: number = 0;
     protected previousViewPort: IViewport = <any>{};
-    protected currentTween: tween.Tween<any>;
+    protected currentTween: Tween<any>;
     protected cachedItemsLength: number;
 
     protected disposeScrollHandler: () => void | undefined;
